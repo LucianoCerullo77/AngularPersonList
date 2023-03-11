@@ -13,4 +13,12 @@ export class AppComponent {
     new Persons('Laura', 'Perez'),
     new Persons('Karla', 'Perez'),
   ];
+
+  inputName: string = '';
+  inputLastName: string = '';
+
+  addPerson() {
+    let pushPerson = new Persons(this.inputName, this.inputLastName);
+    this.person.push(pushPerson);
+  }
 }
