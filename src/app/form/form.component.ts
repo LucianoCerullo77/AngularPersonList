@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Persons } from '../person.model';
 
 @Component({
@@ -12,8 +18,14 @@ export class FormComponent {
   // inputName: string = '';
   // inputLastName: string = '';
 
-  addPerson(inputName: HTMLInputElement, inputLastName: HTMLInputElement) {
-    let pushPerson = new Persons(inputName.value, inputLastName.value);
+  @ViewChild('inputName') inputName: ElementRef;
+  @ViewChild('inputLastName') inputLastName: ElementRef;
+
+  addPerson() {
+    let pushPerson = new Persons(
+      this.inputName.nativeElement.value,
+      this.inputLastName.nativeElement.value
+    );
     this.personCreated.emit(pushPerson);
   }
 }
