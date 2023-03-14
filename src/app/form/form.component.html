@@ -8,7 +8,7 @@
       id="name"
       placeholder="Enter Name"
       class="form-control"
-      [(ngModel)]="inputName"
+      #inputName
     />
   </div>
   <div class="form-group col-md-2">
@@ -19,11 +19,11 @@
       id="lastName"
       placeholder="Enter Last Name"
       class="form-control"
-      [(ngModel)]="inputLastName"
+      #inputLastName
     />
   </div>
   <div class="col-md-2">
-    <button type="submit" class="btn btn-primary mt-4" (click)="addPerson()">
+    <button type="submit" class="btn btn-primary mt-4" (click)="addPerson(inputName,inputLastName)">
       Add Person
     </button>
   </div>
