@@ -8,7 +8,7 @@ import { Persons } from './person.model';
 })
 export class AppComponent {
   title = 'Person List';
-  person: Persons[] = [
+  personData: Persons[] = [
     new Persons('Juan', 'Perez'),
     new Persons('Laura', 'Perez'),
     new Persons('Karla', 'Perez'),
@@ -19,6 +19,6 @@ export class AppComponent {
 
   addPerson() {
     let pushPerson = new Persons(this.inputName, this.inputLastName);
-    this.person.push(pushPerson);
+    this.personData.push(pushPerson);
   }
 }
