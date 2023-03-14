@@ -14,11 +14,7 @@ export class AppComponent {
     new Persons('Karla', 'Perez'),
   ];
 
-  inputName: string = '';
-  inputLastName: string = '';
-
-  addPerson() {
-    let pushPerson = new Persons(this.inputName, this.inputLastName);
-    this.personData.push(pushPerson);
+  PersonsAdded(person: Persons) {
+    this.personData.push(person);
   }
 }
