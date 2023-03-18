@@ -6,4 +6,7 @@ export class PersonsServices {
     new Persons('Laura', 'Perez'),
     new Persons('Karla', 'Perez'),
   ];
+  PersonsAdded(person: Persons) {
+    this.personData.push(person);
+  }
 }
