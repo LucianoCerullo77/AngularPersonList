@@ -20,13 +20,4 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.personData = this.PersonService.personData;
   }
-
-  PersonsAdded(person: Persons) {
-    // this.logginService.sendConsoleMessage(
-    //   `Person added to Array ${person.name}`
-    // );
-    // this.personData.push(person);
-
-    this.PersonService.PersonsAdded(person);
-  }
 }
