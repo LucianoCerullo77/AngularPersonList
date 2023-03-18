@@ -1,5 +1,5 @@
 export class LogginService {
-  sendConsoleMessage(message:string){
+  sendConsoleMessage(message: string) {
     console.log(message);
   }
 }
