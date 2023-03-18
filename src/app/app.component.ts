@@ -9,18 +9,14 @@ import { Persons } from './person.model';
 })
 export class AppComponent {
   title = 'Person List';
-  personData: Persons[] = [
-    new Persons('Juan', 'Perez'),
-    new Persons('Laura', 'Perez'),
-    new Persons('Karla', 'Perez'),
-  ];
+  personData: Persons[] = [];
 
-  constructor(private logginService: LogginService) {
-  }
-
+  constructor(private logginService: LogginService) {}
 
   PersonsAdded(person: Persons) {
-    this.logginService.sendConsoleMessage(`Person added to Array ${person.name}`)
+    this.logginService.sendConsoleMessage(
+      `Person added to Array ${person.name}`
+    );
     this.personData.push(person);
   }
 }
