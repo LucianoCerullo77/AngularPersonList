@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LogginService } from './LogginService.service';
 import { Persons } from './person.model';
 
 @Component({
@@ -14,7 +15,12 @@ export class AppComponent {
     new Persons('Karla', 'Perez'),
   ];
 
+  constructor(private logginService: LogginService) {
+  }
+
+
   PersonsAdded(person: Persons) {
+    this.logginService.sendConsoleMessage(`Person added to Array ${person.name}`)
     this.personData.push(person);
   }
 }
