@@ -12,7 +12,6 @@ import { Persons } from '../person.model';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
-  providers: [LogginService],
 })
 export class FormComponent {
   @Output() personCreated = new EventEmitter<Persons>();
@@ -30,7 +29,7 @@ export class FormComponent {
       this.inputName.nativeElement.value,
       this.inputLastName.nativeElement.value
     );
-    this.logginService.sendConsoleMessage(`Sending Person ${pushPerson.name}`);
+    this.logginService.sendConsoleMessage(`Sending Person ${pushPerson.name} ${pushPerson.lastName}`);
     this.personCreated.emit(pushPerson);
   }
 }
