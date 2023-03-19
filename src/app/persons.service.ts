@@ -1,3 +1,4 @@
+import { LogginService } from './LogginService.service';
 import { Persons } from './person.model';
 
 export class PersonsServices {
@@ -6,7 +7,12 @@ export class PersonsServices {
     new Persons('Laura', 'Perez'),
     new Persons('Karla', 'Perez'),
   ];
+
+  constructor(private logginServices : LogginService){}
+
+
   PersonsAdded(person: Persons) {
+
     this.personData.push(person);
   }
 }
