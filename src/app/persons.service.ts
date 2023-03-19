@@ -12,6 +12,7 @@ export class PersonsServices {
 
 
   PersonsAdded(person: Persons) {
+    this.logginServices.sendConsoleMessage(`Sending person ${person}`)
 
     this.personData.push(person);
   }
