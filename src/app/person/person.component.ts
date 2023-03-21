@@ -13,5 +13,7 @@ export class PersonComponent {
 
   constructor(private personsServices: PersonsServices) {}
 
-  emitGreeting() {}
+  emitGreeting() {
+    this.personsServices.greeting.emit(this.indice)
+  }
 }

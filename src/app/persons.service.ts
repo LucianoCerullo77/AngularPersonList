@@ -10,7 +10,7 @@ export class PersonsServices {
     new Persons('Karla', 'Perez'),
   ];
 
-  greeting = new EventEmitter<string>()
+  greeting = new EventEmitter<Number>()
 
   constructor(private logginServices: LogginService) {}
 
