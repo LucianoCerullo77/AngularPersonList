@@ -15,7 +15,11 @@ export class FormComponent implements OnInit {
   constructor(
     private logginService: LogginService,
     private personService: PersonsServices
-  ) {}
+  ) {
+    this.personService.greeting.subscribe((indice: Number) => {
+      alert(`Index number = ${indice}`);
+    });
+  }
 
   ngOnInit(): void {}
 

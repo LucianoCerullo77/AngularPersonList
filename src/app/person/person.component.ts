@@ -14,6 +14,6 @@ export class PersonComponent {
   constructor(private personsServices: PersonsServices) {}
 
   emitGreeting() {
-    this.personsServices.greeting.emit(this.indice)
+    this.personsServices.greeting.emit(this.indice);
   }
 }
