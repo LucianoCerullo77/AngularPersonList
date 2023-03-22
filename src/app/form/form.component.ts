@@ -9,8 +9,8 @@ import { PersonsServices } from '../persons.service';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  @ViewChild('inputName') inputName: ElementRef;
-  @ViewChild('inputLastName') inputLastName: ElementRef;
+  inputName: string;
+  inputLastName: string;
 
   constructor(
     private logginService: LogginService,
@@ -24,10 +24,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {}
 
   addPerson() {
-    let pushPerson = new Persons(
-      this.inputName.nativeElement.value,
-      this.inputLastName.nativeElement.value
-    );
+    let pushPerson = new Persons(this.inputName, this.inputLastName);
     // this.logginService.sendConsoleMessage(`Sending Person ${pushPerson.name} ${pushPerson.lastName}`);
     // this.personCreated.emit(pushPerson);
     this.personService.PersonsAdded(pushPerson);
