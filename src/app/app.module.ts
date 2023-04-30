@@ -8,9 +8,10 @@ import { PersonComponent } from './person/person.component';
 import { FormComponent } from './form/form.component';
 import { LogginService } from './LogginService.service';
 import { PersonsServices } from './persons.service';
+import { PersonasComponent } from './personas/personas.component';
 
 @NgModule({
-  declarations: [AppComponent, PersonComponent, FormComponent],
+  declarations: [AppComponent, PersonComponent, FormComponent, PersonasComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [LogginService, PersonsServices],
   bootstrap: [AppComponent],
