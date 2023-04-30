@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LogginService } from '../../LogginService.service';
 import { Persons } from '../../person.model';
 import { PersonsServices } from '../../persons.service';
@@ -23,10 +23,8 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addPerson() {
+  onGuardarPersona() {
     let pushPerson = new Persons(this.inputName, this.inputLastName);
-    // this.logginService.sendConsoleMessage(`Sending Person ${pushPerson.name} ${pushPerson.lastName}`);
-    // this.personCreated.emit(pushPerson);
     this.personService.PersonsAdded(pushPerson);
   }
 }
