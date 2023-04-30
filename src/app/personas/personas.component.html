@@ -1,1 +1,11 @@
-<p>personas works!</p>
+<div class="box">
+  <app-person
+    [person]="personElement"
+    [indice]="i"
+    *ngFor="let personElement of personData; let i = index"
+  ></app-person>
+</div>
+
+<div class="box">
+  <app-form></app-form>
+</div>

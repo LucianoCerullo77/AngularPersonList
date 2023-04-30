@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { PersonComponent } from './person/person.component';
-import { FormComponent } from './form/form.component';
+import { PersonComponent } from './personas/person/person.component';
+import { FormComponent } from './personas/form/form.component';
 import { LogginService } from './LogginService.service';
 import { PersonsServices } from './persons.service';
 import { PersonasComponent } from './personas/personas.component';
