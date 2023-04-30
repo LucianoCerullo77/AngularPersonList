@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogginService } from '../../LogginService.service';
 import { Persons } from '../../person.model';
 import { PersonsServices } from '../../persons.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -12,22 +12,35 @@ import { Router } from '@angular/router';
 export class FormComponent implements OnInit {
   inputName: string;
   inputLastName: string;
+  index: number;
 
   constructor(
     private logginService: LogginService,
     private personService: PersonsServices,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.personService.greeting.subscribe((indice: Number) => {
       alert(`Index number = ${indice}`);
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.index = this.route.snapshot.params['id'];
+    if (this.index) {
+      let persona: Persons = this.personService.findPersona(this.index);
+      this.inputName = persona.name;
+      this.inputLastName = persona.lastName;
+    }
+  }
 
   onGuardarPersona() {
     let pushPerson = new Persons(this.inputName, this.inputLastName);
-    this.personService.PersonsAdded(pushPerson);
+    if (this.index) {
+      this.personService.modifyPerson(this.index, pushPerson);
+    } else {
+      this.personService.PersonsAdded(pushPerson);
+    }
     this.router.navigate(['personas']);
   }
 }
