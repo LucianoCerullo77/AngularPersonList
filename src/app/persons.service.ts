@@ -29,4 +29,8 @@ export class PersonsServices {
     pushPerson.name = person.name;
     pushPerson.lastName = person.lastName;
   }
+
+  deletePerson(index: number) {
+    this.personData.splice(index,1);
+  }
 }
