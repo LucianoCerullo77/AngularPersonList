@@ -34,7 +34,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onGuardarPersona() {
+  onSavePerson() {
     let pushPerson = new Persons(this.inputName, this.inputLastName);
     if (this.index) {
       this.personService.modifyPerson(this.index, pushPerson);
