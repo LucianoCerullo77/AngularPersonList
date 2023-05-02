@@ -5,9 +5,14 @@ import { FormComponent } from './personas/form/form.component';
 
 const routes: Routes = [
   { path: '', component: PersonasComponent },
-  { path: 'personas', component: PersonasComponent },
-  { path: 'personas/agregar', component: FormComponent },
-  { path: 'personas/:id', component: FormComponent },
+  {
+    path: 'personas',
+    component: PersonasComponent,
+    children: [
+      { path: 'agregar', component: FormComponent },
+      { path: ':id', component: FormComponent },
+    ],
+  },
 ];
 
 @NgModule({
