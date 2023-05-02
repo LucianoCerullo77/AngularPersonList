@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   inputName: string;
   inputLastName: string;
   index: number;
+  editMode: number;
 
   constructor(
     private logginService: LogginService,
@@ -27,7 +28,8 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.index = this.route.snapshot.params['id'];
-    if (this.index) {
+    this.editMode = +this.route.snapshot.queryParams['editMode'];
+    if (this.editMode != null && this.editMode === 1) {
       let persona: Persons = this.personService.findPersona(this.index);
       this.inputName = persona.name;
       this.inputLastName = persona.lastName;
@@ -36,7 +38,7 @@ export class FormComponent implements OnInit {
 
   onSavePerson() {
     let pushPerson = new Persons(this.inputName, this.inputLastName);
-    if (this.index) {
+    if (this.editMode != null && this.editMode === 1) {
       this.personService.modifyPerson(this.index, pushPerson);
     } else {
       this.personService.PersonsAdded(pushPerson);
