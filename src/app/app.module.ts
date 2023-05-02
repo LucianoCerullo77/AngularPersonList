@@ -9,9 +9,10 @@ import { FormComponent } from './personas/form/form.component';
 import { LogginService } from './LogginService.service';
 import { PersonsServices } from './persons.service';
 import { PersonasComponent } from './personas/personas.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
-  declarations: [AppComponent, PersonComponent, FormComponent, PersonasComponent],
+  declarations: [AppComponent, PersonComponent, FormComponent, PersonasComponent, ErrorComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [LogginService, PersonsServices],
   bootstrap: [AppComponent],
