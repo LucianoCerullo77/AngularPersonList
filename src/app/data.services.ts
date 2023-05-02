@@ -8,7 +8,7 @@ export class DataServices {
 
   savePersons(persons: Persons[]) {
     this.httpclient
-      .post(
+      .put(
         'https://angularpersonlist-default-rtdb.firebaseio.com/datos.json',
         persons
       )
