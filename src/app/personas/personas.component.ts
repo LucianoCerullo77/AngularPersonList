@@ -19,7 +19,10 @@ export class PersonasComponent {
   ) {}
 
   ngOnInit(): void {
-    this.personData = this.PersonService.personData;
+    this.PersonService.getPersons().subscribe((persons : any ) => {
+      this.personData = persons;
+      this.PersonService.setPersons(persons)
+    });
   }
 
   agregar() {

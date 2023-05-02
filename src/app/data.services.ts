@@ -17,4 +17,10 @@ export class DataServices {
         (error) => console.log(`error on save results ${error}`)
       );
   }
+
+  LoadPersons() {
+    return this.httpclient.get(
+      'https://angularpersonlist-default-rtdb.firebaseio.com/datos.json'
+    );
+  }
 }

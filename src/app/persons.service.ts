@@ -5,11 +5,7 @@ import { DataServices } from './data.services';
 
 @Injectable()
 export class PersonsServices {
-  personData: Persons[] = [
-    new Persons('Juan', 'Perez'),
-    new Persons('Laura', 'Perez'),
-    new Persons('Karla', 'Perez'),
-  ];
+  personData: Persons[] = [];
 
   greeting = new EventEmitter<Number>();
 
@@ -18,8 +14,19 @@ export class PersonsServices {
     private dataServices: DataServices
   ) {}
 
+  getPersons() {
+    return this.dataServices.LoadPersons();
+  }
+
+  setPersons(persons: Persons[]) {
+    this.personData = persons;
+  }
+
   PersonsAdded(person: Persons) {
     this.logginServices.sendConsoleMessage(`Sending person ${person.name}`);
+    if (this.personData == null) {
+      this.personData = [];
+    }
     this.personData.push(person);
     this.dataServices.savePersons(this.personData);
   }
