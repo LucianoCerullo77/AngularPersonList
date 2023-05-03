@@ -18,9 +18,10 @@ export class DataServices {
   }
 
   savePersons(persons: Persons[]) {
+    const token = this.loginService?.getIdToken();
     this.httpclient
       .put(
-        'https://angularpersonlist-default-rtdb.firebaseio.com/datos.json',
+        `https://angularpersonlist-default-rtdb.firebaseio.com/datos.json?auth=${token}`,
         persons
       )
       .subscribe(
@@ -31,7 +32,8 @@ export class DataServices {
 
   modifyPerson(index: number, person: Persons) {
     let url: string;
-    url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}.json`;
+    const token = this.loginService?.getIdToken();
+    url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}?auth=${token}.json`;
     this.httpclient.put(url, person).subscribe(
       (response) => console.log(`Result : ${response}`),
       (error) => {
