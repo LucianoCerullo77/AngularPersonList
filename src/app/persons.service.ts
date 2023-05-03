@@ -40,6 +40,7 @@ export class PersonsServices {
     let pushPerson = this.personData[index];
     pushPerson.name = person.name;
     pushPerson.lastName = person.lastName;
+    this.dataServices.modifyPerson(index, person);
   }
 
   deletePerson(index: number) {

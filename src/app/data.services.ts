@@ -23,4 +23,15 @@ export class DataServices {
       'https://angularpersonlist-default-rtdb.firebaseio.com/datos.json'
     );
   }
+
+  modifyPerson(index: number, person: Persons) {
+    let url: string;
+    url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}.json`;
+    this.httpclient.put(url, person).subscribe(
+      (response) => console.log(`Result : ${person}`),
+      (error) => {
+        console.log(`error: ${error}`);
+      }
+    );
+  }
 }
