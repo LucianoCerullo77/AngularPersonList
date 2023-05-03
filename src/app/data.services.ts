@@ -44,7 +44,8 @@ export class DataServices {
 
   deletePerson(index: number) {
     let url: string;
-    url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}.json`;
+    const token = this.loginService?.getIdToken();
+    url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}?auth=${token}.json`;
     this.httpclient.delete(url).subscribe(
       (response) => console.log(`Result : ${response}`),
       (error) => {
