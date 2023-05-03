@@ -13,6 +13,7 @@ import { ErrorComponent } from './error/error.component';
 import { DataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
-  providers: [LogginService, PersonsServices, DataServices],
+  providers: [LogginService, PersonsServices, DataServices, LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
