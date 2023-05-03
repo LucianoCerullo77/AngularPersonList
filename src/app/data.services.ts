@@ -28,7 +28,18 @@ export class DataServices {
     let url: string;
     url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}.json`;
     this.httpclient.put(url, person).subscribe(
-      (response) => console.log(`Result : ${person}`),
+      (response) => console.log(`Result : ${response}`),
+      (error) => {
+        console.log(`error: ${error}`);
+      }
+    );
+  }
+
+  deletePerson(index: number) {
+    let url: string;
+    url = `https://angularpersonlist-default-rtdb.firebaseio.com/datos/${index}.json`;
+    this.httpclient.delete(url).subscribe(
+      (response) => console.log(`Result : ${response}`),
       (error) => {
         console.log(`error: ${error}`);
       }

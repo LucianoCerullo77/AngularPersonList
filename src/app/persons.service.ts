@@ -45,5 +45,14 @@ export class PersonsServices {
 
   deletePerson(index: number) {
     this.personData.splice(index, 1);
+    this.dataServices.deletePerson(index);
+    //saved again to regenerate index on DB
+    this.modifyPersons();
+  }
+
+  modifyPersons() {
+    if (this.personData != null) {
+      this.dataServices.savePersons(this.personData);
+    }
   }
 }
