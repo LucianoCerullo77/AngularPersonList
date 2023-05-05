@@ -1,3 +1,11 @@
+<div *ngIf="!isAuthenticated()" class="box centrado">
+  <a routerLink="/login">Login</a>
+</div>
+
+<div *ngIf="isAuthenticated()" class="box centrado">
+  <a style="cursor: pointer" (click)="logOutBtn()">Log Out</a>
+</div>
+
 <div class="box" id="heading">
   <h1>{{ title }}</h1>
 </div>

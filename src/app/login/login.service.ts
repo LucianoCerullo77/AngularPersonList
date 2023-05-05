@@ -5,7 +5,7 @@ import 'firebase/compat/auth';
 
 @Injectable()
 export class LoginService {
-  token: string;
+  token: string | null;
 
   constructor(private router: Router) {}
   login(email: string, password: string) {
@@ -26,5 +26,20 @@ export class LoginService {
 
   getIdToken() {
     return this.token;
+  }
+
+  isAuthenticated() {
+    return this.token != null;
+  }
+
+  logOut() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.token = null;
+        this.router.navigate(['login']);
+      })
+      .catch((error) => console.log(error));
   }
 }
